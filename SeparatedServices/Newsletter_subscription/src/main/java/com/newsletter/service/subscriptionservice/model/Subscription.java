@@ -1,14 +1,12 @@
 package com.newsletter.service.subscriptionservice.model;
 
 import javax.persistence.Id;
-
+import java.io.Serializable;
 import io.swagger.annotations.ApiModelProperty;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Data
 @Document(collection = "subscription")
@@ -26,7 +24,7 @@ public class Subscription implements Serializable {
     private Boolean consentFlag;
     @ApiModelProperty(required = true)
     private long newsLetterCampaign;
-    @ApiModelProperty(hidden = true)
+    @JsonIgnore
     @Id
     private long id;
 
